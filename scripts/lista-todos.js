@@ -31,24 +31,38 @@ document.addEventListener('DOMContentLoaded', () => {
                     pokemonSecondType = pokemon.types[1].type.name;
                 }
                 const pokemonHability = pokemon.abilities[0].ability.name;
-                // const pokemonStats = pokemon.stats.map(stat => ({
-                //     name: stat.stat.name,
-                //     value: stat.base_stat    
-                // }));
+                const pokemonHp = pokemon.stats[0].base_stat;
+                const pokemonAtk = pokemon.stats[1].base_stat;
+                const pokemonDef = pokemon.stats[2].base_stat;
+                const pokemonSpA = pokemon.stats[3].base_stat;
+                const pokemonSpD = pokemon.stats[4].base_stat;
+                const pokemonSpe = pokemon.stats[5].base_stat;
 
                 const card = document.createElement('div');
                 card.classList.add('card');
                 card.setAttribute('data-pokemon-id', pokemonId);
                 card.setAttribute('data-pokemon-name', pokemonName.toLowerCase());
+                card.setAttribute('data-pokemon-fristType', pokemonFirstType.toLowerCase());
+                card.setAttribute('data-pokemon-secondType', pokemonSecondType.toLowerCase());
 
                 card.innerHTML = `
-                    <img src="${pokemonSpriteUrl}" alt="${pokemonName}">
-                    <span>${pokemonId}</span>
-                    <span><strong>${capitalizeFirstLetter(pokemonName)}</strong></span>
-                    <span>${pokemonHability}</span> 
-                    <div>
-                        <span>${pokemonFirstType}</span>
-                        <span>${pokemonSecondType}</span>
+                    <div class="info">
+                        <img src="${pokemonSpriteUrl}" alt="${pokemonName}">
+                        <span>${pokemonId}</span>
+                        <span><strong>${capitalizeFirstLetter(pokemonName)}</strong></span>
+                        <span>${capitalizeFirstLetter(pokemonHability)}</span> 
+                        <div>
+                            <span>${capitalizeFirstLetter(pokemonFirstType)}</span>
+                            <span>${capitalizeFirstLetter(pokemonSecondType)}</span>
+                        </div>
+                    </div>
+                    <div class="stats">
+                        <span>HP: ${pokemonHp}</span>
+                        <span>ATK: ${pokemonAtk}</span>
+                        <span>DEF: ${pokemonDef}</span>
+                        <span>SPA: ${pokemonSpA}</span>
+                        <span>SPD: ${pokemonSpD}</span>
+                        <span>SPE: ${pokemonSpe}</span>
                     </div>
                 `;
                 

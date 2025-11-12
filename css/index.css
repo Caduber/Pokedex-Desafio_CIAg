@@ -1,9 +1,25 @@
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+
 body {
     background-color: #3a3a3a;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     color: #f4f4f4;
+    cursor: url(../assets/cursor32.png) 16 16, auto;
+}
+
+#title {
+    font-family: "pokemon solid", sans-serif;
+    font-size: 24px;
+    line-height: 24px;   
+    letter-spacing: 3px;
+}
+
+#title a {
+    text-decoration: none;
+    color: white;
+    cursor: url(../assets/pointer32.png) 16 16, auto;
 }
 
 #header {
@@ -14,11 +30,37 @@ body {
     align-items: center;
 }
 
+#header div {
+    display: flex;
+    flex-direction: row;
+}
+
 #searchInput {
     width: 300px;
     padding: 10px;
     border: none;
     border-radius: 5px;
+}
+
+#totalPokemon {
+    border-radius: 10px;
+    padding: 5px;
+    cursor: url(../assets/pointer32.png) 16 16, auto;
+}
+
+#typeDisplay {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(53, 48, 48);
+}
+
+.typeIcon {
+    height: 20px;
+    cursor: url(../assets/pointer32.png) 16 16, auto;
 }
 
 #pokemonContainer {

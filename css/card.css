@@ -9,6 +9,33 @@
     flex-direction: column;
     align-items: center;
     margin: 2.5px;
-    min-width: 100px;
-    max-width: 100px;
+    min-width: 125px;
+    max-width: 125px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(../assets/pokebola.png) ;
+    background-size: 85px 110px;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+.stats {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.card:hover .info {
+    display: none;
+}
+
+.card:hover .stats {
+    display: flex;
+    margin-top: 10px;
+    text-align: left;
 }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/favorite.css">
+
+    <link rel="stylesheet" href="./css/index.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <title>Favorites</title>
+</head>
+<body>
+    <header id="header">
+        <span id="title"><a href="./index.html">Pokédex</a></span>
+        <div>
+            <input type="text" id="searchInput" placeholder="Buscar Pokémon...">
+        </div>
+    </header>
+    <section id="favForm">
+        <div id="favMenu">
+            <div>
+                <label for="add">Adicionar (ID)</label>
+                <input class="favInput" type="text" name="add" id="addFav">  
+            </div>
+            <div>
+                <label for="remove">Remover (ID)</label>
+                <input class="favInput" type="text" name="remove" id="removeFav">
+            </div>
+            <input class="favButton" type="button" name="list" value="Listar" id="listFav"/>
+            <input class="favButton" type="button" name="edit" value="Anotações" id="editFav"/>
+        </div>
+    </section>
+    <section id="pokemonContainerFav">
+
+    </section>
+    <div id="homePopUp" onclick="goHome()">
+        <span class="material-icons-round">home</span>
+    </div> 
+</body>
+<script src="./scripts/favoritos.js"></script>
+<script src="./scripts/filtrar-pokemon.js"></script>
+<script src="https://unpkg.com/lenis@1.3.15/dist/lenis.min.js"></script>    
+<script src="scripts/lennis.js"></script>    
+</html>

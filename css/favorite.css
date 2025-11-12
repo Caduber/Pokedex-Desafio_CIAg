@@ -1,0 +1,86 @@
+html {
+    cursor: url(../assets/cursor32.png) 16 16, auto;
+}
+
+#favoritePopUp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #727272;
+    color: #ffcd19;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 1000;
+    cursor: url(../assets/pointer32.png) 16 16, auto;
+}
+
+#homePopUp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #727272;
+    color: #ffcd19;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 1000;
+    cursor: url(../assets/pointer32.png) 16 16, auto;
+}
+
+#favoritePopUp .material-icons-round {
+    font-size: 50px;
+}
+
+#homePopUp .material-icons-round {
+    font-size: 50px;
+}
+
+#favForm {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#favMenu {
+    width: 70%;
+    height: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #807e76;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+}
+
+.favInput {
+    margin-left: 5px;
+    border-radius: 5px;
+    border: 0px solid;
+    padding: 5px;
+}
+
+.favButton {
+    background-color: #ffcd19;
+    border-radius: 5px;
+    border: 0px solid;
+    padding: 10px;
+    color: #282828;
+    font-weight: 600;
+    cursor: url(../assets/pointer32.png) 16 16, auto;
+}
