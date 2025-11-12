@@ -57,12 +57,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                     </div>
                     <div class="stats">
-                        <span>HP: ${pokemonHp}</span>
-                        <span>ATK: ${pokemonAtk}</span>
-                        <span>DEF: ${pokemonDef}</span>
-                        <span>SPA: ${pokemonSpA}</span>
-                        <span>SPD: ${pokemonSpD}</span>
-                        <span>SPE: ${pokemonSpe}</span>
+                        <p>HP: <span>${pokemonHp}</span>
+                        <p>ATK: <span>${pokemonAtk}</span></p>
+                        <p>DEF: <span>${pokemonDef}</span></p>
+                        <p>SPA: <span>${pokemonSpA}</span></p>
+                        <p>SPD: <span>${pokemonSpD}</span></p>
+                        <p>SPE: <span>${pokemonSpe}</span></p>
                     </div>
                 `;
                 

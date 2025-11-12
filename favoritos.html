@@ -6,9 +6,7 @@
     <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/favorite.css">
-
-    <link rel="stylesheet" href="./css/index.css">
-
+    <link rel="stylesheet" href="./css/card.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <title>Favorites</title>
@@ -24,13 +22,16 @@
         <div id="favMenu">
             <div>
                 <label for="add">Adicionar (ID)</label>
-                <input class="favInput" type="text" name="add" id="addFav">  
+                <input class="favInput" type="text" name="add" id="addFav"> 
+                <button id="addFavButton" class="smallFavButton">Adicionar</button> 
             </div>
             <div>
                 <label for="remove">Remover (ID)</label>
                 <input class="favInput" type="text" name="remove" id="removeFav">
+                <button id="removeFavButton" class="smallFavButton">Remover</button> 
             </div>
-            <input class="favButton" type="button" name="list" value="Listar" id="listFav"/>
+            <!-- <input class="favButton" type="button" name="list" value="Atualizar Lista" id="listFav"/>
+             A lista agora se atualiza automaticamente (versão 3.0) -->
             <input class="favButton" type="button" name="edit" value="Anotações" id="editFav"/>
         </div>
     </section>

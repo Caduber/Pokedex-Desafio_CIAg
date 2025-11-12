@@ -9,9 +9,9 @@ function goFavorite() {
 }
 
 // Adiciona
-document.getElementById("addFav").addEventListener("change", (event) => {
+document.getElementById("addFavButton").addEventListener("click", (event) => {
 
-    const pokemonIdToAdd = event.target.value;
+    const pokemonIdToAdd = document.getElementById("addFav").value; //event.target.value;
     const favList = localStorage.getItem('favoritePokemons') ? JSON.parse(localStorage.getItem('favoritePokemons')) : [];
 
     if (!favList.includes(pokemonIdToAdd) && pokemonIdToAdd > 0 && pokemonIdToAdd <= 1026) {
@@ -19,15 +19,21 @@ document.getElementById("addFav").addEventListener("change", (event) => {
         favList.push(pokemonIdToAdd);
         localStorage.setItem('favoritePokemons', JSON.stringify(favList));
         alert(`Pokémon com ID ${pokemonIdToAdd} adicionado aos favoritos!`);
+        list();
 
     } else {
         alert("Um erro ocorreu, tente novamente");
     }   
 });
 
-
 // Lista
-document.getElementById("listFav").addEventListener("click", function list() {
+
+document.addEventListener("DOMContentLoaded", list());
+
+// document.getElementById("listFav").addEventListener("click", list());
+//A lista agora se atualiza automaticamente (versão 3.0)
+
+function list() {
 
     const favList = localStorage.getItem('favoritePokemons') ? JSON.parse(localStorage.getItem('favoritePokemons')) : [];
     const containerFav = document.getElementById("pokemonContainerFav");
@@ -48,17 +54,16 @@ document.getElementById("listFav").addEventListener("click", function list() {
                 }
             
             const data = await response.json();
-
-            console.log(data);
-
             const pokemonId = data.id;
             const pokemonName = data.name;
             const pokemonSpriteUrl = data.sprites.front_default; 
             const pokemonFirstType = data.types[0].type.name;
             let pokemonSecondType = '';
+
             if (data.types.length == 2) {
                 pokemonSecondType = data.types[1].type.name;
             }
+
             const pokemonHability = data.abilities[0].ability.name;
             const pokemonHp = data.stats[0].base_stat;
             const pokemonAtk = data.stats[1].base_stat;
@@ -74,26 +79,26 @@ document.getElementById("listFav").addEventListener("click", function list() {
             card.setAttribute('data-pokemon-fristType', pokemonFirstType.toLowerCase());
             card.setAttribute('data-pokemon-secondType', pokemonSecondType.toLowerCase());
 
-                card.innerHTML = `
-                    <div class="info">
-                        <img src="${pokemonSpriteUrl}" alt="${pokemonName}">
-                        <span>${pokemonId}</span>
-                        <span><strong>${capitalizeFirstLetter(pokemonName)}</strong></span>
-                        <span>${capitalizeFirstLetter(pokemonHability)}</span> 
-                        <div>
-                            <span>${capitalizeFirstLetter(pokemonFirstType)}</span>
-                            <span>${capitalizeFirstLetter(pokemonSecondType)}</span>
-                        </div>
+            card.innerHTML = `
+                <div class="info">
+                    <img src="${pokemonSpriteUrl}" alt="${pokemonName}">
+                    <span>${pokemonId}</span>
+                    <span><strong>${capitalizeFirstLetter(pokemonName)}</strong></span>
+                    <span>${capitalizeFirstLetter(pokemonHability)}</span> 
+                    <div>
+                        <span>${capitalizeFirstLetter(pokemonFirstType)}</span>
+                        <span>${capitalizeFirstLetter(pokemonSecondType)}</span>
                     </div>
-                    <div class="stats">
-                        <span>HP: ${pokemonHp}</span>
-                        <span>ATK: ${pokemonAtk}</span>
-                        <span>DEF: ${pokemonDef}</span>
-                        <span>SPA: ${pokemonSpA}</span>
-                        <span>SPD: ${pokemonSpD}</span>
-                        <span>SPE: ${pokemonSpe}</span>
-                    </div>
-                `;
+                </div>
+                <div class="stats">
+                    <span>HP: ${pokemonHp}</span>
+                    <span>ATK: ${pokemonAtk}</span>
+                    <span>DEF: ${pokemonDef}</span>
+                    <span>SPA: ${pokemonSpA}</span>
+                    <span>SPD: ${pokemonSpD}</span>
+                    <span>SPE: ${pokemonSpe}</span>
+                </div>
+            `;
                 
                 containerFav.appendChild(card);
 
@@ -101,12 +106,12 @@ document.getElementById("listFav").addEventListener("click", function list() {
             console.error("ERRO - ", e);
         }
     });
-});
+}
 
 // Remove
-document.getElementById("removeFav").addEventListener("change", (event) => {
+document.getElementById("removeFavButton").addEventListener("click", (event) => {
 
-    const pokemonIdToRemove = event.target.value;
+    const pokemonIdToRemove = document.getElementById("removeFav").value;
     const favList = localStorage.getItem('favoritePokemons') ? JSON.parse(localStorage.getItem('favoritePokemons')) : [];
     
     if (favList.includes(pokemonIdToRemove) && pokemonIdToRemove > 0 && pokemonIdToRemove <= 1026) {
@@ -114,6 +119,7 @@ document.getElementById("removeFav").addEventListener("change", (event) => {
         const updatedList = favList.filter(pokemon => pokemon != pokemonIdToRemove);
         localStorage.setItem('favoritePokemons', JSON.stringify(updatedList));
         window.alert(`Pokémon com ID ${pokemonIdToRemove} removido dos favoritos!`);
+        list();
     }
     else {
         const alert = pokemonIdToRemove == "" ? null : window.alert("Erro - Tente Novamente");
