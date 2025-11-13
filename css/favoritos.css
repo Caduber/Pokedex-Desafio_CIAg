@@ -113,3 +113,29 @@ html {
     align-items: center;
     justify-content: center;
 }
+
+@media screen and (max-width: 1000px) {
+    #favMenu {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #favMenu div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #favMenu div .favInput {
+        width: 20%;
+        margin-right: 5px;
+    }
+
+    #homePopUp {
+        position: fixed;
+        margin-bottom: 30px;
+        margin-right: 15px;
+    }
+
+}
