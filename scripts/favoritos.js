@@ -13,17 +13,28 @@ document.getElementById("addFavButton").addEventListener("click", async () => {
 
     const id = document.getElementById("addFav").value;
     const notes = document.getElementById("notesFav").value;
-    const data = {"id": id, "notes": notes};
+
+    if (id > 0 && id <1026) {
+        const data = {"id": id, "notes": notes};
 
     const response = await fetch("http://localhost:8080/createFav", {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-    });
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        });
 
-    window.alert("Pokemon Inserido");
+        if (!response.ok) {
+            window.alert("Erro ao Inserir");
+        }
+        else {
+            window.alert("Pokemon Inserido");
+        }
+    }
+    else {
+        window.alert("Esse número de pokemon não existe");
+    }
     list();
 });
 
@@ -31,36 +42,60 @@ document.getElementById("addFavButton").addEventListener("click", async () => {
 document.getElementById("removeFavButton").addEventListener("click", async () => {
 
     const id = document.getElementById("addFav").value;
-    const data = {"id": id};
+    
+    if (id > 0 && id <1026) {
 
-    const response = await fetch("http://localhost:8080/deleteFav", {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-    });
+        const data = {"id": id};
 
-    window.alert("Pokemon Removido");
-    list();
+        const response = await fetch("http://localhost:8080/deleteFav", {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        });
+
+        if (!response.ok) {
+            window.alert("Erro ao Remover");
+        }
+        else {
+            window.alert("Pokemon Removido");
+        }
+        list();
+    }
+    else {
+        window.alert("Esse número de pokemon não existe");
+    }
+    
 });
 
 // Update
 document.getElementById("updateFavButton").addEventListener("click", async () => {
 
     const id = document.getElementById("addFav").value;
-    const notes = document.getElementById("notesFav").value;
-    const data = {"id": id, "notes": notes};
 
-    const response = await fetch("http://localhost:8080/updateFav", {
-        method: 'PATCH',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-    });
+    if (id > 0 && id <1026 && document.getElementById("notesFav").value ) {
+        const notes = document.getElementById("notesFav").value;
+        const data = {"id": id, "notes": notes};
 
-    window.alert("Pokemon Atualizado");
+        const response = await fetch("http://localhost:8080/updateFav", {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        });
+
+        if (!response) {
+            window.alert("Algo deu errado");
+        }
+        else {
+            window.alert("Pokemon Atualizado (caso esteja entre os favoritos)");
+        }
+    }
+    else {
+        window.alert("Esse número de pokemon não existe");
+    }
     list();
 });
 
@@ -137,7 +172,7 @@ async function list() {
                 <span>SPA: ${pokemonSpA}</span>
                 <span>SPD: ${pokemonSpD}</span>
                 <span>SPE: ${pokemonSpe}</span>
-                <span>Nota: ${capitalizeFirstLetter(pokemon.nota)} </span>
+                <span>Notas: ${capitalizeFirstLetter(pokemon.nota)} </span>
             </div>
         `;
             

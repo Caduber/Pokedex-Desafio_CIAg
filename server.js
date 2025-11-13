@@ -37,10 +37,10 @@ app.post('/createFav', (req, res) => {
         return res.status(400).json({error: "ERRO - A requisição não tem parâmetros"});
     }
 
-    if(req.body.id && req.body.notes) {
+    if(req.body.id) {
 
         const id = req.body.id;
-        const notes = req.body.notes;
+        const notes = req.body.notes || "";
 
         const sql = "Insert INTO favoritos (id, nota) VALUES (?, ?)"
         db.run(sql, [id, notes], (err) => {
